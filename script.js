@@ -35,8 +35,15 @@ function questions(quizIndex) {
         var button = document.createElement("button")
         button.innerHTML = answerValue;
         answersListEl.append(button)
+        button.addEventListener("click", function(event) {
+            var choice = event.target.innerHTML;
+            if(choice === quizData[quizIndex].correct) {
+                console.log("Right")
+            }else {
+                console.log("Wrong")
+            }
+        })
     })
-
 }
 
 
