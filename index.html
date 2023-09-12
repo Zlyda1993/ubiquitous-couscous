@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Code Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Coding Quiz Challenge</h1>
-        <p>Complete the next few questions in the allotted time and submit your highschool. How do well will you do? Will you beat your fellow competitors?</p>
-        <button id="start">Start</button>
+        <h1>Code Quiz</h1>
+        <nav>
+            <a href="/scores.html">High Scores</a>
+        </nav>
     </header>
+
+    <section class="intro">
+        <h1>Coding Quiz Challenge</h1>
+        <p>This quiz will cover basic coding questions related to JavaScript. You will have __ seconds to complete this quiz, if you choose the wrong answer, your time will be penalized. Good luck!</p>
+        <button id="start">Start</button>
+    </section>
+
+    <section class="quiz">
+        <h1 class="questionEl">This is a test!</h1>
+        <ul class="answersListEl">
+        </ul>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
