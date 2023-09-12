@@ -56,3 +56,21 @@ header {
     color: white;
     border-radius: 2px;
 }
+
+.answersListEl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 15vw;
+}
+
+.answersListEl button {
+    text-align: left;
+    margin: 4px 0;
+    padding: 5px;
+    background-color: green;
+    border: 2px solid rgb(0, 107, 0);
+    border-radius: 2px;
+    color: white;
+}
