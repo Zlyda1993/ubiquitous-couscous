@@ -45,6 +45,7 @@ function questions(quizIndex) {
     answersListEl.innerHTML = ""
     questionEl.innerHTML = quizData[quizIndex].question;
     var answersForQuestion = quizData[quizIndex].answerSet
+    console.log(answersForQuestion);
     answersForQuestion.forEach(function (answerValue) {
         var button = document.createElement("button")
         button.innerHTML = answerValue;
@@ -59,19 +60,14 @@ function questions(quizIndex) {
                 time = time - 10;
             }
             if (quizIndex < quizData.length - 1) {
-                quizIndex++
-                questions(quizIndex)
+                quizIndex++;
+                questions(quizIndex);
             } else {
                 quizIndex = 0;
-                quiz.style.display = "
+                location = href = "./scores.html";
             }
-            console.log(score)
-            console.log(time)
-        //    if(timeLeft === 0 || quizIndex > 4) {
-
-        //    }
-
-        //     var finalScore = score + time;
+            // console.log(score)
+            // console.log(time)
 
         })
     })
@@ -80,9 +76,9 @@ function questions(quizIndex) {
 function game() {
     var timer = setInterval(function () {
         if (time > 1) {
-            console.log(time);
+            // console.log(time);
             timeLeft.textContent = time;
-            console.log(timeLeft.textContent = time);
+            // console.log(timeLeft.textContent = time);
             time--;
         } else if (time === 1) {
             timeLeft.textContent = time;
@@ -91,28 +87,48 @@ function game() {
             timeLeft.textContent = '';
             clearInterval(timer);
         }
-       
+
     }, 1000);
 
 }
 
+var finalScore = score + time;
+var usernameInput = document.querySelector("#log");
 
 
-
-
-startButton.addEventListener("click", function() {
+startButton.addEventListener("click", function () {
     game();
     questions(quizIndex);
 });
 
-var restart = document.querySelector("#restart");
-
-restart.addEventListener("click", function() {
-    
-});
 
 var submit = document.querySelector("#submit");
 
-submit.addEventListener("click", function() {
-
+submit.addEventListener("click", function (event) {
+    event.preventDefault();
+    var username = finalScore + usernameInput.value;
+    localStorage.setItem("username", JSON.stringify(username));
+    renderScore();
 });
+
+function renderScore() {
+    var usernameInfo = JSON.parse(localStorage.getItem(username));
+    if (usernameInfo !== null) {
+        // location.replace(href = "./scores.html")
+        document.querySelector(".playerInfo").textContent = usernameInfo;
+        saveplayerInfoToStorage(usernameInfo);
+    }
+}
+
+
+var playAgain = document.querySelector("#restart");
+
+playAgain.addEventListener("click", function (event) {
+    event.preventDefault();
+    location = href = "./index.html";
+})
+
+
+
+
+

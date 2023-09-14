@@ -49,8 +49,9 @@ header {
 }
 
 #start,
-#restart,
-#submit {
+#clear,
+#submit,
+#restart {
     cursor: pointer;
     text-align: center;
     background-color: green;
