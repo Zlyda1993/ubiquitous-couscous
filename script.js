@@ -67,11 +67,11 @@ function questions(quizIndex) {
             }
             console.log(score)
             console.log(time)
-           if(timeLeft === 0 || quizIndex > 4) {
+        //    if(timeLeft === 0 || quizIndex > 4) {
 
-           }
+        //    }
 
-            var finalScore = score + time;
+        //     var finalScore = score + time;
 
         })
     })
@@ -98,7 +98,21 @@ function game() {
 
 
 
+
+
 startButton.addEventListener("click", function() {
     game();
     questions(quizIndex);
+});
+
+var restart = document.querySelector("#restart");
+
+restart.addEventListener("click", function() {
+    
+});
+
+var submit = document.querySelector("#submit");
+
+submit.addEventListener("click", function() {
+
 });
