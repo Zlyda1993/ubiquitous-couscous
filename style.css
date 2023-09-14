@@ -48,7 +48,9 @@ header {
     margin: 20px 0;
 }
 
-#start {
+#start,
+#restart,
+#submit {
     cursor: pointer;
     text-align: center;
     background-color: green;
@@ -83,3 +85,4 @@ header {
 .answersListEl button:hover {
     cursor: pointer;
 }
+

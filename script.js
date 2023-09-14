@@ -63,13 +63,15 @@ function questions(quizIndex) {
                 questions(quizIndex)
             } else {
                 quizIndex = 0;
-                quiz.style.display = "none"
+                quiz.style.display = "
             }
             console.log(score)
             console.log(time)
-           
+           if(timeLeft === 0 || quizIndex > 4) {
 
-            // var finalScore = score + time;
+           }
+
+            var finalScore = score + time;
 
         })
     })
@@ -93,6 +95,8 @@ function game() {
     }, 1000);
 
 }
+
+
 
 startButton.addEventListener("click", function() {
     game();
