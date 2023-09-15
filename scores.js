@@ -13,3 +13,6 @@ function renderScores() {
 clearBtn.addEventListener("click", function() {
     localStorage.clear()
 })
+
+
+renderScores();
