@@ -64,7 +64,7 @@ function questions(quizIndex) {
                 questions(quizIndex);
             } else {
                 quizIndex = 0;
-                location = href = "./scores.html";
+                endGame();
             }
             // console.log(score)
             // console.log(time)
@@ -73,7 +73,9 @@ function questions(quizIndex) {
     })
 }
 
-function game() {
+var usernameInput = document.querySelector("#log");
+
+startButton.addEventListener("click", function () {
     var timer = setInterval(function () {
         if (time > 1) {
             // console.log(time);
@@ -89,44 +91,63 @@ function game() {
         }
 
     }, 1000);
-
-}
-
-var finalScore = score + time;
-var usernameInput = document.querySelector("#log");
-
-
-startButton.addEventListener("click", function () {
-    game();
     questions(quizIndex);
 });
 
+var end = document.querySelector(".end")
+var scoreOutput = document.querySelector(".scoreOutput")
+var initialsInput = document.querySelector(".initialsInput")
+var saveBtn = document.querySelector(".saveBtn")
 
-var submit = document.querySelector("#submit");
+end.style.display = "none"
 
-submit.addEventListener("click", function (event) {
-    event.preventDefault();
-    var username = finalScore + usernameInput.value;
-    localStorage.setItem("username", JSON.stringify(username));
-    renderScore();
-});
 
-function renderScore() {
-    var usernameInfo = JSON.parse(localStorage.getItem(username));
-    if (usernameInfo !== null) {
-        // location.replace(href = "./scores.html")
-        document.querySelector(".playerInfo").textContent = usernameInfo;
-        saveplayerInfoToStorage(usernameInfo);
-    }
+function endGame() {
+    var localStorageHistory = JSON.parse(localStorage.getItem("userData")) || []
+    timeLeft.innerHTML = ""
+    var finalScore = score + time;
+    quiz.style.display = "none"
+    end.style.display = "block"
+    scoreOutput.innerHTML = "You got a score of: " + finalScore
+    saveBtn.addEventListener("click", function() {
+        location.replace(href = "./scores.html");
+        var initialsValue = initialsInput.value
+       var userData = {
+        score: finalScore,
+        initials: initialsValue
+       }
+       localStorageHistory.push(userData)
+       localStorage.setItem("userData", JSON.stringify(localStorageHistory))
+       console.log(userData)
+    })
 }
 
 
-var playAgain = document.querySelector("#restart");
+// var submit = document.querySelector("#submit");
 
-playAgain.addEventListener("click", function (event) {
-    event.preventDefault();
-    location = href = "./index.html";
-})
+// submit.addEventListener("click", function (event) {
+//     event.preventDefault();
+//     var username = finalScore + usernameInput.value;
+//     localStorage.setItem("username", JSON.stringify(username));
+//     renderScore();
+// });
+
+// function renderScore() {
+//     var usernameInfo = JSON.parse(localStorage.getItem("username"));
+//     if (usernameInfo !== null) {
+//         // location.replace(href = "./scores.html")
+//         document.querySelector(".playerInfo").textContent = usernameInfo;
+//         saveplayerInfoToStorage(usernameInfo);
+//     }
+// }
+
+
+// var playAgain = document.querySelector("#restart");
+
+// playAgain.addEventListener("click", function (event) {
+//     event.preventDefault();
+//     location = href = "./index.html";
+// })
 
 
 
