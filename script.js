@@ -123,33 +123,4 @@ function endGame() {
 }
 
 
-// var submit = document.querySelector("#submit");
-
-// submit.addEventListener("click", function (event) {
-//     event.preventDefault();
-//     var username = finalScore + usernameInput.value;
-//     localStorage.setItem("username", JSON.stringify(username));
-//     renderScore();
-// });
-
-// function renderScore() {
-//     var usernameInfo = JSON.parse(localStorage.getItem("username"));
-//     if (usernameInfo !== null) {
-//         // location.replace(href = "./scores.html")
-//         document.querySelector(".playerInfo").textContent = usernameInfo;
-//         saveplayerInfoToStorage(usernameInfo);
-//     }
-// }
-
-
-// var playAgain = document.querySelector("#restart");
-
-// playAgain.addEventListener("click", function (event) {
-//     event.preventDefault();
-//     location = href = "./index.html";
-// })
-
-
-
-
 
