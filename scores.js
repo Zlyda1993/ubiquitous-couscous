@@ -11,7 +11,8 @@ function renderScores() {
 }
 
 clearBtn.addEventListener("click", function() {
-    localStorage.clear()
+    localStorage.clear();
+    scoresList.innerHTML = " ";
 })
 
 
